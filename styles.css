@@ -121,7 +121,20 @@ a:hover {
   color: var(--color-text);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 6px;
 }
 
 .logo-icon {
