@@ -239,7 +239,7 @@ a:hover {
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #1a2a3a 0%, #1a3a3a 30%, #1a2e2e 60%, #2a1a2a 100%);
-  padding: 80px 24px;
+  padding: 60px 24px 20px;
   box-sizing: border-box;
 }
 
@@ -279,7 +279,7 @@ a:hover {
   z-index: 3;
   text-align: center;
   max-width: 800px;
-  padding-bottom: 90px;
+  padding-bottom: 70px;
 }
 
 .hero-eyebrow {
@@ -288,7 +288,7 @@ a:hover {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-accent-light);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .hero-title {
@@ -304,7 +304,7 @@ a:hover {
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   color: var(--color-primary-light);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   font-weight: 400;
 }
 
@@ -312,7 +312,7 @@ a:hover {
   font-size: 1.15rem;
   color: rgba(255,255,255,0.7);
   max-width: 550px;
-  margin: 0 auto 36px;
+  margin: 0 auto 20px;
   line-height: 1.8;
 }
 
@@ -321,11 +321,11 @@ a:hover {
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .hero-tagline {
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .tagline-badge {
@@ -342,7 +342,7 @@ a:hover {
 /* Scroll Indicator */
 .hero-scroll-indicator {
   position: absolute;
-  bottom: 24px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
