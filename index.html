@@ -443,10 +443,21 @@
         <button class="review-tab" data-filter="workbook">The Workbook</button>
       </div>
 
-      <!-- Reviews Display -->
-      <div class="reviews-grid" id="reviewsGrid">
-        <!-- Reviews populated by JavaScript -->
+      <!-- Reviews Carousel -->
+      <div class="reviews-carousel-wrapper" data-animate="fade-up">
+        <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Previous reviews">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="reviews-carousel" id="reviewsCarousel">
+          <div class="reviews-track" id="reviewsTrack">
+            <!-- Reviews populated by JavaScript -->
+          </div>
+        </div>
+        <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Next reviews">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
+      <div class="carousel-dots" id="carouselDots"></div>
 
       <!-- Review Form -->
       <div class="review-form-container" data-animate="fade-up">
@@ -637,28 +648,13 @@
       particlesContainer.appendChild(particle);
     }
 
-    // ========== REVIEWS SYSTEM ==========
-    const seedReviews = [
-      { name: 'Sarah', product: 'book', rating: 5, text: 'As someone living with fibromyalgia for over a decade, this book finally made me feel seen. Dr. Wickersham\'s approach is both medically sound and deeply compassionate. The biopsychosocial framework changed how I think about my pain.', date: '2025-11-15' },
-      { name: 'Michael', product: 'workbook', rating: 5, text: 'The workbook modules are incredibly well-structured. I especially loved the self-management masterclass section. Having guided exercises to work through has made all the difference in my daily routine.', date: '2025-12-02' },
-      { name: 'Jennifer', product: 'book', rating: 5, text: 'What sets this apart from other chronic pain books is that Dr. Wickersham lives with chronic pain himself. You can feel that understanding on every page. Highly recommend to anyone feeling alone in their pain journey.', date: '2026-01-10' },
-      { name: 'David', product: 'workbook', rating: 4, text: 'The 25 modules give you a clear roadmap for building resilience. I appreciated the emphasis on honesty, self-compassion, and patience. Louise Locker\'s counseling perspective adds a wonderful dimension.', date: '2026-02-18' },
-      { name: 'Patricia', product: 'book', rating: 5, text: 'I bought this for my husband who was recently diagnosed with rheumatoid arthritis. It has been a game-changer for both of us. We now have a shared language for talking about his pain and how to manage it together.', date: '2026-03-05' },
-      { name: 'Robert', product: 'workbook', rating: 5, text: 'I\'ve tried many workbooks over the years. This one is different — it doesn\'t promise a cure, it promises a path. And that honesty is exactly what I needed. The exercises are practical and meaningful.', date: '2026-04-12' },
-    ];
-
-    function getReviews() {
-      const stored = localStorage.getItem('resilientpath_reviews');
-      if (stored) return JSON.parse(stored);
-      localStorage.setItem('resilientpath_reviews', JSON.stringify(seedReviews));
-      return seedReviews;
-    }
-
-    function saveReview(review) {
-      const reviews = getReviews();
-      reviews.unshift(review);
-      localStorage.setItem('resilientpath_reviews', JSON.stringify(reviews));
-    }
+    // ========== REVIEWS SYSTEM (API + CAROUSEL) ==========
+    const API_URL = 'https://api.theresilientpathbook.com/reviews';
+    let allReviews = [];
+    let filteredReviews = [];
+    let currentPage = 0;
+    let reviewsPerPage = window.innerWidth <= 768 ? 1 : 2;
+    let autoplayInterval = null;
 
     function renderStars(rating) {
       return Array.from({length: 5}, (_, i) =>
@@ -671,38 +667,106 @@
       return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     }
 
-    function renderReviews(filter = 'all') {
-      const reviews = getReviews();
-      const filtered = filter === 'all' ? reviews : reviews.filter(r => r.product === filter);
-      const grid = document.getElementById('reviewsGrid');
+    function getTotalPages() {
+      return Math.max(1, Math.ceil(filteredReviews.length / reviewsPerPage));
+    }
 
-      if (filtered.length === 0) {
-        grid.innerHTML = '<p class="no-reviews">No reviews yet for this product. Be the first!</p>';
+    function renderCarousel() {
+      const track = document.getElementById('reviewsTrack');
+      const dotsContainer = document.getElementById('carouselDots');
+
+      if (filteredReviews.length === 0) {
+        track.innerHTML = '<p class="no-reviews">No reviews yet. Be the first!</p>';
+        dotsContainer.innerHTML = '';
         return;
       }
 
-      grid.innerHTML = filtered.map(r => `
-        <div class="review-card">
-          <div class="review-header">
-            <div class="review-avatar">${r.name.charAt(0).toUpperCase()}</div>
-            <div>
-              <div class="review-name">${r.name}</div>
-              <div class="review-product-badge">${r.product === 'book' ? 'The Book' : 'The Workbook'}</div>
-            </div>
-            <div class="review-stars">${renderStars(r.rating)}</div>
+      // Build all slides
+      const totalPages = getTotalPages();
+      let slidesHTML = '';
+      for (let p = 0; p < totalPages; p++) {
+        const start = p * reviewsPerPage;
+        const pageReviews = filteredReviews.slice(start, start + reviewsPerPage);
+        slidesHTML += `<div class="carousel-slide ${p === currentPage ? 'active' : ''}" data-page="${p}">
+          <div class="slide-cards">
+            ${pageReviews.map(r => `
+              <div class="review-card">
+                <div class="review-header">
+                  <div class="review-avatar">${r.name.charAt(0).toUpperCase()}</div>
+                  <div>
+                    <div class="review-name">${r.name}</div>
+                    <div class="review-product-badge">${r.product === 'book' ? 'The Book' : 'The Workbook'}</div>
+                  </div>
+                  <div class="review-stars">${renderStars(r.rating)}</div>
+                </div>
+                <p class="review-text">${r.text}</p>
+                <span class="review-date">${formatDate(r.date)}</span>
+              </div>
+            `).join('')}
           </div>
-          <p class="review-text">${r.text}</p>
-          <span class="review-date">${formatDate(r.date)}</span>
-        </div>
-      `).join('');
+        </div>`;
+      }
+      track.innerHTML = slidesHTML;
+
+      // Build dots
+      dotsContainer.innerHTML = Array.from({length: totalPages}, (_, i) =>
+        `<button class="carousel-dot ${i === currentPage ? 'active' : ''}" data-page="${i}" aria-label="Page ${i+1}"></button>`
+      ).join('');
+
+      // Dot click handlers
+      dotsContainer.querySelectorAll('.carousel-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+          goToPage(parseInt(dot.dataset.page));
+          resetAutoplay();
+        });
+      });
     }
+
+    function goToPage(page) {
+      const totalPages = getTotalPages();
+      currentPage = ((page % totalPages) + totalPages) % totalPages;
+      const slides = document.querySelectorAll('.carousel-slide');
+      slides.forEach(s => s.classList.remove('active'));
+      const target = document.querySelector(`.carousel-slide[data-page="${currentPage}"]`);
+      if (target) target.classList.add('active');
+      const dots = document.querySelectorAll('.carousel-dot');
+      dots.forEach(d => d.classList.remove('active'));
+      const activeDot = document.querySelector(`.carousel-dot[data-page="${currentPage}"]`);
+      if (activeDot) activeDot.classList.add('active');
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayInterval = setInterval(() => goToPage(currentPage + 1), 6000);
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) clearInterval(autoplayInterval);
+    }
+
+    function resetAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    // Nav arrows
+    document.getElementById('carouselPrev').addEventListener('click', () => { goToPage(currentPage - 1); resetAutoplay(); });
+    document.getElementById('carouselNext').addEventListener('click', () => { goToPage(currentPage + 1); resetAutoplay(); });
+
+    // Pause on hover
+    document.getElementById('reviewsCarousel').addEventListener('mouseenter', stopAutoplay);
+    document.getElementById('reviewsCarousel').addEventListener('mouseleave', startAutoplay);
 
     // Filter tabs
     document.querySelectorAll('.review-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.review-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        renderReviews(tab.dataset.filter);
+        const filter = tab.dataset.filter;
+        filteredReviews = filter === 'all' ? [...allReviews] : allReviews.filter(r => r.product === filter);
+        currentPage = 0;
+        renderCarousel();
+        resetAutoplay();
       });
     });
 
@@ -732,36 +796,77 @@
       document.getElementById('charCount').textContent = e.target.value.length;
     });
 
-    // Form submission
-    document.getElementById('reviewForm').addEventListener('submit', (e) => {
+    // Form submission (API)
+    document.getElementById('reviewForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (selectedRating === 0) {
-        alert('Please select a star rating.');
-        return;
+      if (selectedRating === 0) { alert('Please select a star rating.'); return; }
+      const submitBtn = document.querySelector('.btn-submit');
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').textContent = 'Submitting...';
+      try {
+        const resp = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: document.getElementById('reviewName').value.trim(),
+            product: document.getElementById('reviewProduct').value,
+            rating: selectedRating,
+            text: document.getElementById('reviewText').value.trim()
+          })
+        });
+        const data = await resp.json();
+        if (data.success) {
+          allReviews.unshift(data.review);
+          const activeFilter = document.querySelector('.review-tab.active').dataset.filter;
+          filteredReviews = activeFilter === 'all' ? [...allReviews] : allReviews.filter(r => r.product === activeFilter);
+          currentPage = 0;
+          renderCarousel();
+          document.getElementById('reviewForm').style.display = 'none';
+          document.getElementById('reviewSuccess').style.display = 'flex';
+          setTimeout(() => {
+            document.getElementById('reviewForm').reset();
+            document.getElementById('reviewForm').style.display = 'block';
+            document.getElementById('reviewSuccess').style.display = 'none';
+            selectedRating = 0;
+            document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('star-active'));
+            document.getElementById('charCount').textContent = '0';
+          }, 4000);
+        } else {
+          alert(data.error || 'Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        alert('Unable to submit review. Please try again later.');
       }
-      const review = {
-        name: document.getElementById('reviewName').value.trim(),
-        product: document.getElementById('reviewProduct').value,
-        rating: selectedRating,
-        text: document.getElementById('reviewText').value.trim(),
-        date: new Date().toISOString().split('T')[0]
-      };
-      saveReview(review);
-      document.getElementById('reviewForm').style.display = 'none';
-      document.getElementById('reviewSuccess').style.display = 'flex';
-      renderReviews(document.querySelector('.review-tab.active').dataset.filter);
-      setTimeout(() => {
-        document.getElementById('reviewForm').reset();
-        document.getElementById('reviewForm').style.display = 'block';
-        document.getElementById('reviewSuccess').style.display = 'none';
-        selectedRating = 0;
-        document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('star-active'));
-        document.getElementById('charCount').textContent = '0';
-      }, 4000);
+      submitBtn.disabled = false;
+      submitBtn.querySelector('span').textContent = 'Submit Review';
     });
 
-    // Initial render
-    renderReviews();
+    // Responsive
+    window.addEventListener('resize', () => {
+      const newPerPage = window.innerWidth <= 768 ? 1 : 2;
+      if (newPerPage !== reviewsPerPage) {
+        reviewsPerPage = newPerPage;
+        currentPage = 0;
+        renderCarousel();
+      }
+    });
+
+    // Fetch reviews from API
+    async function loadReviews() {
+      try {
+        const resp = await fetch(API_URL);
+        const data = await resp.json();
+        if (data.success) {
+          allReviews = data.reviews;
+          filteredReviews = [...allReviews];
+          renderCarousel();
+          startAutoplay();
+        }
+      } catch (err) {
+        document.getElementById('reviewsTrack').innerHTML = '<p class="no-reviews">Unable to load reviews. Please refresh.</p>';
+      }
+    }
+    loadReviews();
   </script>
 
 </body>
