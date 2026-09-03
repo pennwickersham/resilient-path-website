@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Resilient Path — Managing Life with Chronic Pain | Dr. Pendleton Wickersham &amp; Louise Locker</title>
-
 <meta name="description" content="Managing Life with Chronic Pain: The Resilient Path — a book, personal workbook, and companion app by Dr. Pendleton Wickersham and Louise Locker. Evidence-based strategies for reclaiming your life from chronic pain.">
 <meta name="author" content="Dr. Pendleton Wickersham, Louise Locker">
 <meta name="keywords" content="chronic pain management, resilient path, chronic pain book, chronic pain workbook, pain management app, Dr Pendleton Wickersham, Louise Locker, biopsychosocial model, rheumatology, chronic pain self-help, chronic illness, spoonie, invisible illness">
@@ -43,14 +42,11 @@
   --ink:#2E2733;
   --ink-soft:#6C6274;
   --rule:#E4DACB;
-
   --display:'Montserrat',system-ui,sans-serif;
   --body:'Spectral',Georgia,serif;
-
   --wrap:1180px;
   --gut:clamp(20px,5vw,64px);
 }
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){
@@ -64,7 +60,6 @@ body{
 }
 img{max-width:100%;display:block;height:auto}
 a{color:var(--teal)}
-
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
 
 /* ---------- the cover's type voice ---------- */
@@ -140,6 +135,12 @@ a{color:var(--teal)}
 }
 .btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.9rem}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* the small line under a set of order buttons */
+.fmt-note{
+  font-family:var(--display);font-size:.64rem;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-soft);margin:.9rem 0 0;
+}
 
 /* ============================ hero ============================ */
 .hero{position:relative;overflow:hidden;padding:clamp(2.4rem,5vw,4rem) 0 clamp(3rem,6.5vw,5rem)}
@@ -218,7 +219,6 @@ a{color:var(--teal)}
 .feature h2 em{display:block;font-style:normal;color:var(--teal)}
 .feature p{color:var(--ink)}
 .feature strong{color:var(--aubergine);font-weight:500}
-
 .ticks{list-style:none;padding:0;margin:1.6rem 0 0}
 .ticks li{position:relative;padding-left:1.7rem;margin-bottom:.7rem;color:var(--ink)}
 .ticks li::before{
@@ -287,20 +287,6 @@ a{color:var(--teal)}
 .author__id p{margin:.3rem 0 0;font-size:.82rem;color:var(--ink-soft);font-family:var(--display);letter-spacing:.06em}
 .author p{font-size:1rem}
 
-/* reviews */
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.4vw,1.8rem)}
-.quote{
-  background:var(--cream);border:1px solid var(--rule);border-radius:3px;
-  padding:clamp(1.5rem,2.6vw,2rem);display:flex;flex-direction:column;
-}
-.sec--tint .quote{background:#fff}
-.quote__stars{color:var(--gold);letter-spacing:.22em;font-size:.82rem;margin-bottom:.9rem}
-.quote p{margin:0 0 1.2rem;font-style:italic;color:var(--ink)}
-.quote cite{
-  margin-top:auto;font-style:normal;font-family:var(--display);font-size:.68rem;
-  font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
-}
-
 /* closing */
 .close{text-align:center}
 .close .display{font-size:clamp(1.8rem,4.4vw,3rem)}
@@ -342,7 +328,7 @@ a{color:var(--teal)}
   .hero__in,.feature,.authors{grid-template-columns:1fr}
   .feature--flip .feature__art{order:0}
   .hero__art{order:-1;max-width:196px;margin-inline:auto}
-  .pillars,.quotes,.foot__grid{grid-template-columns:1fr}
+  .pillars,.foot__grid{grid-template-columns:1fr}
   .hero__in{gap:1.8rem}
   .appgrid{grid-template-columns:1fr}
   .nav__toggle{display:block}
@@ -379,7 +365,6 @@ a{color:var(--teal)}
       <a href="#workbook">The Workbook</a>
       <a href="#app">The App</a>
       <a href="#authors">Authors</a>
-      <a href="#reviews">Reviews</a>
       <a href="#order">Order</a>
     </nav>
   </div>
@@ -423,7 +408,7 @@ a{color:var(--teal)}
       <h2 class="display">A complete pain<br>management system</h2>
       <div class="rule"><i></i></div>
       <p>Three parts that work together. Read the book to understand your pain, work the
-        workbook to build the habits, and carry the app with you between appointments.</p>
+         workbook to build the habits, and carry the app with you between appointments.</p>
     </div>
     <div class="pillars">
       <article class="pillar rv">
@@ -474,8 +459,10 @@ a{color:var(--teal)}
         <li>Compassionate, accessible language throughout</li>
       </ul>
       <div class="btns">
-        <a class="btn js-amazon" data-book="book" href="#order">Order the book</a>
+        <a class="btn js-amazon" data-book="book" href="#order">Order the paperback</a>
+        <a class="btn btn--ghost js-amazon" data-book="kindle" href="#order">Read on Kindle</a>
       </div>
+      <p class="fmt-note js-fmt" data-for="book kindle">Paperback and Kindle edition on Amazon</p>
     </div>
   </div>
 </section>
@@ -511,6 +498,7 @@ a{color:var(--teal)}
       <div class="btns">
         <a class="btn js-amazon" data-book="workbook" href="#order">Order the workbook</a>
       </div>
+      <p class="fmt-note js-fmt" data-for="workbook">Paperback on Amazon — designed to be written in</p>
     </div>
   </div>
 </section>
@@ -523,7 +511,7 @@ a{color:var(--teal)}
       <h2 class="display">Your resilient path,<br>always with you</h2>
       <div class="rule"><i></i></div>
       <p>The Resilient Path app brings the program to your phone — a digital workbook, health
-        tracking, an AI guide, and crisis resources.</p>
+         tracking, an AI guide, and crisis resources.</p>
     </div>
     <div class="feature">
       <div class="feature__art rv">
@@ -613,39 +601,6 @@ a{color:var(--teal)}
   </div>
 </section>
 
-<!-- ==================== reviews ==================== -->
-<section class="sec" id="reviews">
-  <div class="wrap">
-    <div class="sec__head rv">
-      <p class="eyebrow">Reader Reviews</p>
-      <h2 class="display">What readers are saying</h2>
-      <div class="rule"><i></i></div>
-      <p>Hear from people who are walking their own resilient path.</p>
-    </div>
-    <!-- REVIEWS: replace the three below with real reader reviews as they come in. -->
-    <div class="quotes">
-      <blockquote class="quote rv">
-        <div class="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p>Add a reader review here. Keep it to two or three sentences — the specific detail is what
-          persuades someone who is deciding whether this book is for them.</p>
-        <cite>Reader name — The Book</cite>
-      </blockquote>
-      <blockquote class="quote rv">
-        <div class="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p>A second review slot. Reviews that name a concrete change carry more weight than general
-          praise.</p>
-        <cite>Reader name — The Workbook</cite>
-      </blockquote>
-      <blockquote class="quote rv">
-        <div class="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p>A third review slot. Once Amazon reviews are live, quote them here and link the listing
-          so readers can read the rest.</p>
-        <cite>Reader name — The App</cite>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
 <!-- ==================== order ==================== -->
 <section class="sec sec--tint sec--edge close" id="order">
   <div class="wrap">
@@ -654,11 +609,14 @@ a{color:var(--teal)}
       <h2 class="display">Begin your<br>resilient path</h2>
       <div class="rule"><i></i></div>
       <p>Whether you start with the book, the workbook, or the app, every step forward is a step
-        toward reclaiming your life from chronic pain.</p>
+         toward reclaiming your life from chronic pain.</p>
       <div class="btns">
-        <a class="btn btn--gold js-amazon" data-book="book" href="#order">Order the book</a>
+        <a class="btn btn--gold js-amazon" data-book="book" href="#order">Order the paperback</a>
+        <a class="btn btn--ghost js-amazon" data-book="kindle" href="#order">Read on Kindle</a>
         <a class="btn btn--ghost js-amazon" data-book="workbook" href="#order">Order the workbook</a>
       </div>
+      <p class="fmt-note js-fmt" data-for="book kindle workbook">All editions available on Amazon</p>
+
       <p style="margin-top:2.6rem"><span class="flank"><span>Also available as an app</span></span></p>
       <div class="stores" style="justify-content:center">
         <a class="store" href="https://apps.apple.com/us/app/resilient-path/id6762085688">Download on the <b>App&nbsp;Store</b></a>
@@ -688,7 +646,6 @@ a{color:var(--teal)}
           <li><a href="#workbook">The Workbook</a></li>
           <li><a href="#app">The App</a></li>
           <li><a href="#authors">Authors</a></li>
-          <li><a href="#reviews">Reviews</a></li>
         </ul>
       </div>
       <div>
@@ -703,24 +660,36 @@ a{color:var(--teal)}
     <div class="foot__base">
       <p>© <span id="yr">2026</span> Brewster Wickersham Publications. All rights reserved.</p>
       <p><em>The Resilient Path</em> is an educational and informational wellness tool. It is not a
-        medical device and does not provide medical advice, diagnoses, or treatment recommendations.</p>
+         medical device and does not provide medical advice, diagnoses, or treatment recommendations.</p>
     </div>
   </div>
 </footer>
 
 <script>
 /* ============================================================
-   AMAZON LINKS — the only thing you need to edit to go live.
-   Paste the Amazon product URL between the quotes. Any entry
-   left empty renders as a non-clickable "Coming soon on Amazon"
-   button, so the page never ships a dead link.
+   AMAZON LINKS — the only thing you need to edit.
+
+   Paste each Amazon product URL between the quotes. Any entry
+   left empty renders as a non-clickable "coming soon" button,
+   so the page never ships a dead link.
+
+   Use the plain product URL. The short ...com/dp/ASIN form is
+   cleanest; strip everything after the ASIN (no /ref=, no ?tag=).
    ============================================================ */
 const AMAZON = {
-  book:     "",   // e.g. "https://www.amazon.com/dp/XXXXXXXXXX"
-  workbook: ""    // e.g. "https://www.amazon.com/dp/YYYYYYYYYY"
+  book:     "https://www.amazon.com/dp/B0HHLCHTRC",   // paperback
+  kindle:   "https://www.amazon.com/dp/B0HHKKSR3D",   // Kindle edition
+  workbook: "https://www.amazon.com/dp/B0HHLCSVBJ"    // workbook paperback
 };
 
 (function () {
+  /* labels used when a link has not been added yet */
+  const LABEL = {
+    book:     'Paperback — coming soon on Amazon',
+    kindle:   'Kindle edition — coming soon',
+    workbook: 'Workbook — coming soon on Amazon'
+  };
+
   /* ---- wire up the order buttons ---- */
   document.querySelectorAll('.js-amazon').forEach(function (el) {
     const url = AMAZON[el.dataset.book];
@@ -732,8 +701,14 @@ const AMAZON = {
     } else {
       el.setAttribute('aria-disabled', 'true');
       el.setAttribute('role', 'link');
-      el.textContent = (el.dataset.book === 'workbook' ? 'Workbook' : 'Book') + ' — coming soon on Amazon';
+      el.textContent = LABEL[el.dataset.book] || 'Coming soon on Amazon';
     }
+  });
+
+  /* ---- hide a format note if none of its formats are live yet ---- */
+  document.querySelectorAll('.js-fmt').forEach(function (note) {
+    const anyLive = (note.dataset.for || '').split(' ').some(function (k) { return AMAZON[k]; });
+    if (!anyLive) note.style.display = 'none';
   });
 
   /* ---- nav ---- */
