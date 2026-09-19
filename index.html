@@ -27,6 +27,134 @@
 <meta name="twitter:image" content="https://theresilientpathbook.com/images/og-image.jpg">
 <meta name="twitter:image:alt" content="Managing Life with Chronic Pain: The Resilient Path, by Pendleton B. Wickersham, MD">
 
+<!-- Structured data: tells search engines what the book, workbook, app, authors, and
+     publisher are. Keep ISBNs, page counts, and Amazon URLs in step with the listings. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://theresilientpathbook.com/#website",
+      "url": "https://theresilientpathbook.com/",
+      "name": "The Resilient Path",
+      "inLanguage": "en-US",
+      "publisher": { "@id": "https://brewsterwickershampublications.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://brewsterwickershampublications.com/#organization",
+      "name": "Brewster Wickersham Publications",
+      "url": "https://brewsterwickershampublications.com/",
+      "logo": "https://brewsterwickershampublications.com/logo.jpg",
+      "email": "info@brewsterwickershampublications.com"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theresilientpathbook.com/#pendleton-wickersham",
+      "name": "Pendleton B. Wickersham",
+      "honorificSuffix": "MD, FACP, FACR",
+      "jobTitle": "Board-certified rheumatologist",
+      "description": "Practicing rheumatologist who has lived with ankylosing spondylitis since age 22.",
+      "image": "https://theresilientpathbook.com/images/author-wickersham.jpg",
+      "url": "https://theresilientpathbook.com/#authors",
+      "sameAs": [
+        "https://www.amazon.com/Pendleton-Wickersham/e/B004TYIEZQ",
+        "https://www.doximity.com/pub/pendleton-wickersham-md"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theresilientpathbook.com/#louise-locker",
+      "name": "Louise Locker",
+      "honorificSuffix": "LCSW",
+      "jobTitle": "Licensed clinical social worker",
+      "description": "Counselor and community leader who lives with arthritis and chronic pain.",
+      "image": "https://theresilientpathbook.com/images/author-locker.jpg",
+      "url": "https://theresilientpathbook.com/#authors"
+    },
+    {
+      "@type": "Book",
+      "@id": "https://theresilientpathbook.com/#book",
+      "name": "Managing Life with Chronic Pain: The Resilient Path",
+      "alternateName": [
+        "The Resilient Path",
+        "Managing Life with Chronic Pain: The Resilient Path: Strategies for Living a Better Life One Step at a Time"
+      ],
+      "description": "A compassionate, practical guide to living with chronic pain, grounded in the biopsychosocial model, for people with rheumatoid arthritis, lupus, fibromyalgia, osteoarthritis, and other autoimmune and chronic pain conditions.",
+      "url": "https://theresilientpathbook.com/#book",
+      "image": "https://theresilientpathbook.com/images/book-cover.jpg",
+      "author": { "@id": "https://theresilientpathbook.com/#pendleton-wickersham" },
+      "publisher": { "@id": "https://brewsterwickershampublications.com/#organization" },
+      "inLanguage": "en",
+      "about": ["Chronic pain", "Pain management", "Rheumatoid arthritis", "Lupus", "Fibromyalgia", "Osteoarthritis"],
+      "workExample": [
+        {
+          "@type": "Book",
+          "@id": "https://theresilientpathbook.com/#book-paperback",
+          "bookFormat": "https://schema.org/Paperback",
+          "isbn": "9798171016081",
+          "numberOfPages": 210,
+          "datePublished": "2026-08-31",
+          "inLanguage": "en",
+          "url": "https://www.amazon.com/dp/B0HHLCHTRC"
+        },
+        {
+          "@type": "Book",
+          "@id": "https://theresilientpathbook.com/#book-kindle",
+          "bookFormat": "https://schema.org/EBook",
+          "numberOfPages": 207,
+          "datePublished": "2026-09-02",
+          "inLanguage": "en",
+          "url": "https://www.amazon.com/dp/B0HHKKSR3D",
+          "identifier": { "@type": "PropertyValue", "propertyID": "ASIN", "value": "B0HHKKSR3D" }
+        }
+      ]
+    },
+    {
+      "@type": "Book",
+      "@id": "https://theresilientpathbook.com/#workbook",
+      "name": "The Resilient Path: Your Personal Workbook",
+      "alternateName": "Managing Life with Chronic Pain: The Resilient Path: Strategies for Living a Better Life One Step at a Time, Your Personal Workbook",
+      "description": "The companion workbook to Managing Life with Chronic Pain: The Resilient Path, matched chapter by chapter to the book, with guided reflections, symptom and flare trackers, pacing plans, and flare planning.",
+      "url": "https://theresilientpathbook.com/#workbook",
+      "image": "https://theresilientpathbook.com/images/workbook-cover.jpg",
+      "author": [
+        { "@id": "https://theresilientpathbook.com/#pendleton-wickersham" },
+        { "@id": "https://theresilientpathbook.com/#louise-locker" }
+      ],
+      "publisher": { "@id": "https://brewsterwickershampublications.com/#organization" },
+      "inLanguage": "en",
+      "workExample": {
+        "@type": "Book",
+        "@id": "https://theresilientpathbook.com/#workbook-paperback",
+        "bookFormat": "https://schema.org/Paperback",
+        "isbn": "9798171021085",
+        "numberOfPages": 104,
+        "datePublished": "2026-08-31",
+        "inLanguage": "en",
+        "url": "https://www.amazon.com/dp/B0HHLCSVBJ"
+      }
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://theresilientpathbook.com/#app",
+      "name": "Resilient Path",
+      "description": "The companion app to The Resilient Path: the full workbook as 25 interactive modules, a personal flare-up plan, health tracking, and a program guide grounded in the book.",
+      "url": "https://theresilientpathbook.com/#app",
+      "image": "https://theresilientpathbook.com/images/app-screenshot.jpg",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "HealthApplication",
+      "installUrl": [
+        "https://apps.apple.com/us/app/resilient-path/id6762085688",
+        "https://play.google.com/store/apps/details?id=resilient.path.app"
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  ]
+}
+</script>
+
 <link rel="icon" href="images/mark.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,6 +288,9 @@ a{color:var(--teal)}
   background:linear-gradient(105deg,rgba(251,248,244,.30) 0%,rgba(251,248,244,.66) 34%,rgba(251,248,244,.94) 60%,var(--cream) 88%);
 }
 .hero__in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+/* the h1 carries the full title for search engines; each line keeps its own style */
+.hero__title{margin:0;font-size:inherit;font-weight:inherit}
+.hero__title .eyebrow,.hero__title .display{display:block}
 .hero__copy .display{font-size:clamp(2.7rem,7.6vw,5.3rem);font-weight:200}
 .hero__copy .display em{
   display:block;font-style:normal;color:var(--teal);
@@ -442,9 +573,11 @@ a{color:var(--teal)}
   <div class="hero__veil" aria-hidden="true"></div>
   <div class="wrap hero__in">
     <div class="hero__copy">
-      <p class="eyebrow">Managing Life with Chronic Pain</p>
-      <div class="hero__the">The</div>
-      <h1 class="display">Resilient<em>Path</em></h1>
+      <h1 class="hero__title">
+        <span class="eyebrow">Managing Life with Chronic Pain</span>
+        <span class="hero__the">The</span>
+        <span class="display">Resilient<em>Path</em></span>
+      </h1>
       <div class="rule rule--left"><i></i></div>
       <p class="hero__lede">
         <strong style="font-weight:500">You have been told to manage your pain. Nobody has told you how.</strong>
@@ -453,7 +586,7 @@ a{color:var(--teal)}
       </p>
       <p class="hero__motto">Written from experience, guided by expertise.</p>
       <div class="btns">
-        <a class="btn js-amazon" data-book="book" href="#order">Order the book</a>
+        <a class="btn js-amazon" data-book="book" href="https://www.amazon.com/dp/B0HHLCHTRC" target="_blank" rel="noopener">Order the book</a>
         <a class="btn btn--ghost" href="#app">Explore the app</a>
       </div>
       <p class="hero__by">
@@ -695,8 +828,8 @@ a{color:var(--teal)}
         of skills. They can be learned, practiced, and rebuilt after setbacks.
       </p>
       <div class="btns">
-        <a class="btn js-amazon" data-book="book" href="#order">Order the paperback</a>
-        <a class="btn btn--ghost js-amazon" data-book="kindle" href="#order">Read on Kindle</a>
+        <a class="btn js-amazon" data-book="book" href="https://www.amazon.com/dp/B0HHLCHTRC" target="_blank" rel="noopener">Order the paperback</a>
+        <a class="btn btn--ghost js-amazon" data-book="kindle" href="https://www.amazon.com/dp/B0HHKKSR3D" target="_blank" rel="noopener">Read on Kindle</a>
       </div>
       <p class="fmt-note js-fmt" data-for="book kindle">Paperback and Kindle edition on Amazon</p>
     </div>
@@ -781,7 +914,7 @@ a{color:var(--teal)}
         Reading gives you the map. This is where you start walking.
       </p>
       <div class="btns">
-        <a class="btn js-amazon" data-book="workbook" href="#order">Order the workbook</a>
+        <a class="btn js-amazon" data-book="workbook" href="https://www.amazon.com/dp/B0HHLCSVBJ" target="_blank" rel="noopener">Order the workbook</a>
       </div>
       <p class="fmt-note js-fmt" data-for="workbook">Paperback on Amazon — designed to be written in</p>
     </div>
@@ -913,9 +1046,9 @@ a{color:var(--teal)}
         Your condition may be permanent. Your relationship with it is not.
       </p>
       <div class="btns">
-        <a class="btn btn--gold js-amazon" data-book="book" href="#order">Order the paperback</a>
-        <a class="btn btn--ghost js-amazon" data-book="kindle" href="#order">Read on Kindle</a>
-        <a class="btn btn--ghost js-amazon" data-book="workbook" href="#order">Order the workbook</a>
+        <a class="btn btn--gold js-amazon" data-book="book" href="https://www.amazon.com/dp/B0HHLCHTRC" target="_blank" rel="noopener">Order the paperback</a>
+        <a class="btn btn--ghost js-amazon" data-book="kindle" href="https://www.amazon.com/dp/B0HHKKSR3D" target="_blank" rel="noopener">Read on Kindle</a>
+        <a class="btn btn--ghost js-amazon" data-book="workbook" href="https://www.amazon.com/dp/B0HHLCSVBJ" target="_blank" rel="noopener">Order the workbook</a>
       </div>
       <p class="fmt-note js-fmt" data-for="book kindle workbook">All editions available on Amazon</p>
 
@@ -978,6 +1111,10 @@ a{color:var(--teal)}
 
    Use the plain product URL. The short ...com/dp/ASIN form is
    cleanest; strip everything after the ASIN (no /ref=, no ?tag=).
+
+   The same URLs are also written into each button's href (and the
+   structured data in <head>) so search engines see them without
+   running this script. If a link changes, change it there too.
    ============================================================ */
 const AMAZON = {
   book:     "https://www.amazon.com/dp/B0HHLCHTRC",   // paperback

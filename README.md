@@ -33,6 +33,12 @@ all five buttons at once.
 "Book — coming soon on Amazon" (or "Workbook — …"). The page never ships a dead
 link, and you can publish before the listings are live.
 
+**Now that the listings are live**, the same Amazon URLs are also written into
+each order button's `href` and into the structured data (the
+`application/ld+json` block in `<head>`), so search engines see them without
+running the script. If a listing URL, ISBN, or page count changes, update the
+`AMAZON` object, the button `href`s, and the structured data together.
+
 ---
 
 ## Files
@@ -48,10 +54,10 @@ images/
   mark.jpg              square crop, used as the favicon and nav mark
   app-screenshot.jpg    Digital Workbook screen (Module 1), cropped from the app
                         repo's public/screenshots/02_workbook.png, 600px wide
-  bwp-logo.jpg          KEEP FROM THE EXISTING REPO
+  bwp-logo.jpg          publisher crest (square crop of the BWP logo), footer
 ```
 
-`bwp-logo.jpg` is not included here. If it or the app screenshot is missing, the
+If an image such as the app screenshot is missing, the
 page hides that element rather than showing a broken image icon (and the app
 section's cards widen to fill the space).
 
