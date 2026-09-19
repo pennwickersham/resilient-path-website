@@ -46,13 +46,14 @@ images/
   workbook-back.jpg     back cover, workbook     (not currently placed on the page)
   wash.jpg              watercolor plate, used as the hero background
   mark.jpg              square crop, used as the favicon and nav mark
-  app-screenshot.png    KEEP FROM THE EXISTING REPO
+  app-screenshot.jpg    Digital Workbook screen (Module 1), cropped from the app
+                        repo's public/screenshots/02_workbook.png, 600px wide
   bwp-logo.jpg          KEEP FROM THE EXISTING REPO
 ```
 
-`app-screenshot.png` and `bwp-logo.jpg` are not included here — they already exist
-in the repo and should stay. If either is missing the page hides that element
-rather than showing a broken image icon.
+`bwp-logo.jpg` is not included here. If it or the app screenshot is missing, the
+page hides that element rather than showing a broken image icon (and the app
+section's cards widen to fill the space).
 
 ---
 

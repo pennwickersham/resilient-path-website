@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Resilient Path — Managing Life with Chronic Pain | Dr. Pendleton Wickersham &amp; Louise Locker</title>
-<meta name="description" content="You have been told to manage your pain. Nobody has told you how. A book, workbook, and companion app from rheumatologist Dr. Pendleton B. Wickersham and Louise Locker, LCSW — for rheumatoid arthritis, lupus, fibromyalgia, osteoarthritis, and other chronic pain conditions.">
+<meta name="description" content="Written from experience, guided by expertise. A book, workbook, and companion app from rheumatologist Dr. Pendleton B. Wickersham and Louise Locker, LCSW — two people who live with chronic pain themselves — for rheumatoid arthritis, lupus, fibromyalgia, osteoarthritis, and other chronic pain conditions.">
 <meta name="author" content="Dr. Pendleton Wickersham, Louise Locker">
 <meta name="keywords" content="chronic pain management, resilient path, chronic pain book, chronic pain workbook, pain management app, Dr Pendleton Wickersham, Louise Locker, biopsychosocial model, rheumatology, chronic pain self-help, chronic illness, spoonie, invisible illness">
 <meta name="robots" content="index, follow">
@@ -177,6 +177,7 @@ a{color:var(--teal)}
   text-transform:uppercase;color:var(--aubergine);margin-top:2.1rem;
 }
 .hero__by span{display:block;color:var(--teal);margin-top:.35rem}
+.hero__motto{font-style:italic;color:var(--teal);font-size:1.14rem;margin:.9rem 0 0}
 .hero__art{position:relative}
 .hero__art img{
   width:100%;max-width:min(392px,100%);margin-inline:auto;border-radius:2px;
@@ -247,11 +248,64 @@ a{color:var(--teal)}
   font-family:var(--display);font-weight:400;font-size:.92rem;letter-spacing:.06em;
   color:var(--aubergine);
 }
-.values{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
-.values i{
-  font-style:normal;font-family:var(--display);font-size:.66rem;font-weight:600;
+/* the three lenses the workbook is done through */
+.lenses{display:grid;gap:1.15rem;margin:1.3rem 0 0}
+.lenses dt{
+  display:inline-block;font-family:var(--display);font-size:.66rem;font-weight:600;
   letter-spacing:.2em;text-transform:uppercase;color:var(--teal);
   border:1px solid var(--gold-soft);border-radius:99px;padding:.5rem 1rem;
+}
+.lenses dd{margin:.55rem 0 0;color:var(--ink-soft);font-size:.98rem}
+
+/* long feature columns: keep the cover in view while the copy scrolls */
+@media (min-width:901px){
+  .feature--long{align-items:start}
+  .feature--long .feature__art{position:sticky;top:110px}
+  .feature--solo .appgrid{grid-template-columns:repeat(3,1fr)}
+}
+/* when a feature's image is missing, let the copy use the full width */
+.feature--solo{grid-template-columns:1fr}
+
+/* a note from the authors */
+.letter{max-width:42rem;margin:0 auto}
+.letter p{font-size:1.12rem;margin:0 0 1.25rem}
+.letter strong{color:var(--aubergine);font-weight:500}
+.letter .letter__sign{
+  font-family:var(--display);font-size:.7rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--aubergine);text-align:center;margin:2.2rem 0 0;
+  line-height:2;
+}
+.letter__sign span{white-space:nowrap}
+.letter__sign i{font-style:normal;color:var(--gold);margin:0 .7rem}
+
+/* the approach: body, mind, connection */
+.bps{width:100%;max-width:400px;margin-inline:auto;display:block;overflow:visible}
+.bps text{font-family:var(--display);text-anchor:middle}
+.bps .lbl{font-size:12px;font-weight:600;letter-spacing:.16em;fill:var(--aubergine)}
+.bps .sub{font-family:var(--body);font-size:13px;font-style:italic;fill:var(--ink-soft);letter-spacing:0}
+.bps .you{font-family:var(--body);font-size:20px;font-style:italic;fill:var(--teal);letter-spacing:0}
+.dials{display:grid;gap:1.35rem;margin-top:1.8rem}
+.dial{border-left:2px solid var(--gold);padding:.2rem 0 .2rem 1.2rem}
+.dial b{
+  font-family:var(--display);font-size:.62rem;font-weight:600;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);
+}
+.dial h3{
+  font-family:var(--display);font-weight:500;font-size:.9rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--aubergine);margin:.3rem 0 .35rem;
+}
+.dial p{margin:0;font-size:.98rem;color:var(--ink-soft)}
+.pullnote{
+  margin:2rem 0 0;padding:1.2rem 1.4rem;background:var(--cream);
+  border:1px solid var(--rule);border-radius:3px;font-size:1.02rem;
+}
+.pullnote strong{color:var(--aubergine);font-weight:500}
+
+/* a way of being */
+.pillars--two{grid-template-columns:repeat(2,1fr)}
+.quote{
+  text-align:center;font-style:italic;color:var(--teal);
+  font-size:clamp(1.2rem,2.4vw,1.45rem);margin:clamp(2.4rem,5vw,3.4rem) 0 0;
 }
 
 /* app */
@@ -262,6 +316,10 @@ a{color:var(--teal)}
   text-transform:uppercase;color:var(--aubergine);margin:0 0 .4rem;
 }
 .appcard p{margin:0;font-size:.96rem;color:var(--ink-soft)}
+.feature__art .phone{
+  max-width:min(320px,100%);border:7px solid var(--aubergine);border-radius:30px;
+  box-shadow:0 30px 62px -26px rgba(41,17,50,.5);
+}
 .pricing{
   font-family:var(--display);font-size:.72rem;font-weight:500;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ink-soft);margin-top:2rem;
@@ -334,7 +392,7 @@ a{color:var(--teal)}
   .hero__in,.feature,.authors{grid-template-columns:1fr}
   .feature--flip .feature__art{order:0}
   .hero__art{order:-1;max-width:196px;margin-inline:auto}
-  .pillars,.foot__grid{grid-template-columns:1fr}
+  .pillars,.pillars--two,.foot__grid{grid-template-columns:1fr}
   .hero__in{gap:1.8rem}
   .appgrid{grid-template-columns:1fr}
   .nav__toggle{display:block}
@@ -351,6 +409,8 @@ a{color:var(--teal)}
   .btn{width:100%}
   .btns{flex-direction:column}
   .foot__base{flex-direction:column}
+  .letter__sign span{display:block}
+  .letter__sign i{display:none}
 }
 </style>
 </head>
@@ -388,8 +448,10 @@ a{color:var(--teal)}
       <div class="rule rule--left"><i></i></div>
       <p class="hero__lede">
         <strong style="font-weight:500">You have been told to manage your pain. Nobody has told you how.</strong>
-        That gap is where most people living with chronic pain spend years. This book closes it.
+        That gap is where most people living with chronic pain spend years. We know, because we
+        have lived there too. This book was written to walk through it with you.
       </p>
+      <p class="hero__motto">Written from experience, guided by expertise.</p>
       <div class="btns">
         <a class="btn js-amazon" data-book="book" href="#order">Order the book</a>
         <a class="btn btn--ghost" href="#app">Explore the app</a>
@@ -406,39 +468,187 @@ a{color:var(--teal)}
   </div>
 </section>
 
+<!-- ==================== a note from the authors ==================== -->
+<section class="sec sec--tint sec--edge" id="note">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <p class="eyebrow">A Note from the Authors</p>
+      <h2 class="display">You are not<br>your pain</h2>
+      <div class="rule"><i></i></div>
+    </div>
+    <div class="letter rv">
+      <p>
+        If you live with chronic pain, you may have spent years trying to explain something no one
+        else can see. You may have been told your tests look fine, or that you look too well to be
+        hurting. You may have quietly grieved plans you used to make, and pushed through days that
+        would flatten anyone else.
+      </p>
+      <p>
+        <strong>We want you to know: we see you.</strong> Your pain is real. Your exhaustion is
+        real. The effort it takes to get through an ordinary day is real. You deserve to feel seen
+        and heard, by your doctors, by the people who love you, and by yourself.
+      </p>
+      <p>
+        We get it, because we have lived it. We are a rheumatologist and a counselor, and both of
+        us live with chronic pain. We wrote <em>The Resilient Path</em> to offer what we most needed
+        along the way: validation of what you are going through, and gentle, practical ways to make
+        life better.
+      </p>
+      <p class="letter__sign"><span>Pendleton B. Wickersham, MD</span><i>&middot;</i><span>Louise Locker, LCSW</span></p>
+    </div>
+  </div>
+</section>
+
 <!-- ==================== the program ==================== -->
-<section class="sec sec--tint sec--edge">
+<section class="sec sec--edge">
   <div class="wrap">
     <div class="sec__head rv">
       <p class="eyebrow">The Program</p>
-      <h2 class="display">A complete pain<br>management system</h2>
+      <h2 class="display">Three parts,<br>one path</h2>
       <div class="rule"><i></i></div>
-      <p>Three parts that work together. Read the book to understand your pain, work the
-         workbook to build the habits, and carry the app with you between appointments.</p>
+      <p>The book helps you understand what is happening and why. The workbook is where that
+         understanding becomes your own, where you pause, reflect, and put each lesson into
+         practice. The app carries it all with you, shaped around your answers.</p>
     </div>
     <div class="pillars">
       <article class="pillar rv">
-        <div class="pillar__tag">Read</div>
+        <div class="pillar__tag">Understand</div>
         <h3>The Book</h3>
-        <p>A comprehensive guide grounded in the biopsychosocial model of pain management.</p>
+        <p>A compassionate, comprehensive guide grounded in the biopsychosocial model of pain.</p>
       </article>
       <article class="pillar rv">
         <div class="pillar__tag">Practice</div>
         <h3>The Workbook</h3>
-        <p>25 guided modules of hands-on exercises, reflections, and resilience-building tools.</p>
+        <p>Where the lessons take root. Guided reflections and exercises, matched chapter by
+           chapter to the book.</p>
       </article>
       <article class="pillar rv">
         <div class="pillar__tag">Carry</div>
         <h3>The App</h3>
-        <p>A digital workbook, health tracking, and an AI guide available whenever you need it.</p>
+        <p>Your workbook, your plan, and a guide grounded in the book, with you whenever you
+           need it.</p>
       </article>
     </div>
   </div>
 </section>
 
+<!-- ==================== the approach ==================== -->
+<section class="sec sec--tint sec--edge" id="approach">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <p class="eyebrow">The Approach</p>
+      <h2 class="display">Turning down<br>the volume on pain</h2>
+      <div class="rule"><i></i></div>
+      <p>Pain is real, and it is shaped by more than the body alone. Your nervous system weighs
+         the signals from your joints and tissues alongside your sleep, your stress, your mood,
+         your worries, and the people around you. Then it sets the volume.</p>
+    </div>
+    <div class="feature">
+      <div class="feature__art rv">
+        <svg class="bps" viewBox="0 0 400 380" role="img"
+             aria-labelledby="bps-t">
+          <title id="bps-t">Body, mind, and connection overlap, and you are at the center of all three</title>
+          <circle cx="200" cy="135" r="112" fill="#291132" fill-opacity=".06" stroke="#291132" stroke-opacity=".55" stroke-width="1.2"/>
+          <circle cx="140" cy="238" r="112" fill="#143E46" fill-opacity=".07" stroke="#143E46" stroke-opacity=".55" stroke-width="1.2"/>
+          <circle cx="260" cy="238" r="112" fill="#B08A3E" fill-opacity=".12" stroke="#B08A3E" stroke-width="1.2"/>
+          <text class="lbl" x="200" y="74">BODY</text>
+          <text class="sub" x="200" y="94">biological</text>
+          <text class="lbl" x="108" y="292">MIND</text>
+          <text class="sub" x="112" y="312">psychological</text>
+          <text class="lbl" x="298" y="292">CONNECTION</text>
+          <text class="sub" x="298" y="312">social</text>
+          <circle cx="200" cy="184" r="3" fill="#B08A3E"/>
+          <text class="you" x="200" y="212">you</text>
+        </svg>
+      </div>
+      <div class="rv">
+        <p>
+          That is why the same condition can feel bearable one day and overwhelming the next. It is
+          the heart of the <strong style="color:var(--aubergine);font-weight:500">biopsychosocial
+          model</strong>, and it is good news: there are more dials within reach than you may have
+          been told. Medical care matters enormously. So does everything else.
+        </p>
+        <div class="dials">
+          <div class="dial">
+            <b>Biological</b>
+            <h3>Body</h3>
+            <p>Inflammation, sleep, movement, nutrition, and the treatment plan you build with your
+               care team.</p>
+          </div>
+          <div class="dial">
+            <b>Psychological</b>
+            <h3>Mind</h3>
+            <p>Stress, worry, and grief can amplify pain. Skills that calm a nervous system on high
+               alert can quiet it.</p>
+          </div>
+          <div class="dial">
+            <b>Social</b>
+            <h3>Connection</h3>
+            <p>Relationships, work, and feeling understood all shape how much room pain takes up in
+               a day.</p>
+          </div>
+        </div>
+        <p class="pullnote">
+          <strong>None of this means your pain is &ldquo;all in your head.&rdquo;</strong> It means
+          your whole life has a say in how much you hurt, and every part of it you tend to gives you
+          one more way to turn the volume down.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== a way of being ==================== -->
+<section class="sec sec--edge" id="path">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <p class="eyebrow">A Way of Being</p>
+      <h2 class="display">A path,<br>not a destination</h2>
+      <div class="rule"><i></i></div>
+      <p>This is not a to-do list to finish, or a problem to solve once and set aside. It is an
+         invitation to cultivate a way of being, one steady enough to hold the hard days and the
+         good ones.</p>
+    </div>
+    <div class="pillars pillars--two">
+      <article class="pillar rv">
+        <div class="pillar__tag">Journey</div>
+        <h3>There is no finish line</h3>
+        <p>A plan that promises to fix chronic pain once and for all sets you up to feel like you
+           have failed every time a flare returns. Shifting from fixing it to walking with it
+           changes that. Setbacks become part of the terrain, not proof you did something wrong,
+           and every step counts, including the small ones.</p>
+      </article>
+      <article class="pillar rv">
+        <div class="pillar__tag">Acceptance</div>
+        <h3>Acceptance is not giving up</h3>
+        <p>Accepting life with pain does not mean being passive about it. It means setting down the
+           exhausting fight with what is, so that energy can go toward what matters to you. Research
+           on chronic pain has found that people who practice acceptance tend to be less distressed,
+           less disabled, and more engaged in their lives.</p>
+      </article>
+      <article class="pillar rv">
+        <div class="pillar__tag">Pacing</div>
+        <h3>Your energy is precious</h3>
+        <p>Managing energy is at the heart of living well with pain. Thoughtful pacing means doing
+           a little less on good days so there is more left for hard ones, and stepping out of the
+           cycle of pushing through and then paying for it. Consider this an invitation to find
+           your own pace, and to keep finding it as things change.</p>
+      </article>
+      <article class="pillar rv">
+        <div class="pillar__tag">Presence</div>
+        <h3>Meet each moment as it is</h3>
+        <p>Some days will be better than others. Rather than measuring today against the life you
+           had before, or the one you expected, the path asks you to meet this moment as it is,
+           with patience and kindness, and to find the next right step from here.</p>
+      </article>
+    </div>
+    <p class="quote rv">A way of life, not a destination.</p>
+  </div>
+</section>
+
 <!-- ==================== the book ==================== -->
-<section class="sec" id="book">
-  <div class="wrap feature">
+<section class="sec sec--tint sec--edge" id="book">
+  <div class="wrap feature feature--long">
     <div class="feature__art rv">
       <img src="images/book-cover.jpg" width="1000" height="1250"
            alt="The Resilient Path book, front cover">
@@ -454,8 +664,14 @@ a{color:var(--teal)}
       <p>
         Dr. Wickersham is a practicing rheumatologist who has spent his career in that gap with his
         patients. He has watched capable, intelligent people leave the exam room with a treatment
-        plan and no idea what Tuesday afternoon is supposed to look like. <strong>This book is what
-        he wishes he had time to say in every appointment.</strong>
+        plan and no idea what Tuesday afternoon is supposed to look like. He knows that gap from the
+        patient's side too, having lived with ankylosing spondylitis since he was 22. <strong>This
+        book is what he wishes he had time to say in every appointment.</strong>
+      </p>
+      <p>
+        The book is grounded in the biopsychosocial model: the understanding that your body, your
+        mind, and the life around you all shape how much pain you feel, and that each one offers a
+        way to turn the volume down.
       </p>
       <p class="eyebrow" style="margin:1.9rem 0 0">The Resilient Path covers the full territory</p>
       <ul class="ticks">
@@ -469,9 +685,9 @@ a{color:var(--teal)}
       </ul>
       <p style="margin-top:1.6rem">
         Written for people with rheumatoid arthritis, lupus, fibromyalgia, osteoarthritis, and other
-        autoimmune and chronic pain conditions, this book treats you as the capable adult you are.
-        The tone is direct and warm. The guidance is grounded in clinical evidence and decades of
-        practice.
+        autoimmune and chronic pain conditions, this book meets you where you are. It is warm,
+        honest, and practical, grounded in clinical evidence, decades of practice, and the kind of
+        understanding that only comes from living with pain yourself.
       </p>
       <p>
         <strong>Resilience is not a personality trait you either have or lack.</strong> It is a set
@@ -487,8 +703,8 @@ a{color:var(--teal)}
 </section>
 
 <!-- ==================== the workbook ==================== -->
-<section class="sec sec--tint sec--edge" id="workbook">
-  <div class="wrap feature feature--flip">
+<section class="sec sec--edge" id="workbook">
+  <div class="wrap feature feature--flip feature--long">
     <div class="feature__art rv">
       <img src="images/workbook-cover.jpg" width="1000" height="1294"
            alt="The Resilient Path: Your Personal Workbook, front cover">
@@ -500,6 +716,12 @@ a{color:var(--teal)}
       <p>
         <strong>Reading about managing chronic pain and actually managing it are two different
         things.</strong> This workbook closes the distance.
+      </p>
+      <p>
+        Insight on its own tends to fade. The lessons that last are the ones you stop and work
+        through: putting them into your own words, trying them in your own life, and noticing what
+        changes. That is what the workbook is for. <strong>It is where the ideas in the book become
+        yours.</strong>
       </p>
       <p>
         Every chapter here matches a chapter of the book. Read a chapter, then open the workbook to
@@ -531,7 +753,29 @@ a{color:var(--teal)}
         <li><b>IV</b><span>Self-management masterclass</span></li>
         <li><b>V</b><span>Living a full life with pain</span></li>
       </ul>
-      <div class="values"><i>Honesty</i><i>Self-compassion</i><i>Patience</i></div>
+      <p class="eyebrow" style="margin:2.1rem 0 .6rem">Three lenses for the work</p>
+      <p style="margin:0">
+        Every exercise is approached through three lenses. They are what turn a list of activities
+        into a way of being.
+      </p>
+      <dl class="lenses">
+        <div>
+          <dt>Patience</dt>
+          <dd>Change with chronic pain is gradual, and it rarely moves in a straight line. Patience
+              lets you keep going through setbacks without deciding you have failed.</dd>
+        </div>
+        <div>
+          <dt>Self-acceptance</dt>
+          <dd>You cannot build a better life from a place of blame. Accepting yourself as you are
+              today, pain included, is where real change begins, and it is not the same as giving
+              up.</dd>
+        </div>
+        <div>
+          <dt>Honesty</dt>
+          <dd>The exercises help most when your answers are true. Being honest about how you feel,
+              what you can do, and what you need is how your plan becomes genuinely yours.</dd>
+        </div>
+      </dl>
       <p style="margin-top:1.5rem;font-size:1.1rem;font-style:italic;color:var(--teal)">
         Reading gives you the map. This is where you start walking.
       </p>
@@ -544,25 +788,38 @@ a{color:var(--teal)}
 </section>
 
 <!-- ==================== the app ==================== -->
-<section class="sec" id="app">
+<section class="sec sec--tint sec--edge" id="app">
   <div class="wrap">
     <div class="sec__head rv">
       <p class="eyebrow">The Companion App</p>
       <h2 class="display">Your resilient path,<br>always with you</h2>
       <div class="rule"><i></i></div>
-      <p>The Resilient Path app brings the program to your phone — a digital workbook, health
-         tracking, an AI guide, and crisis resources.</p>
+      <p>The Resilient Path app brings the whole program to your phone, and shapes it around you.
+         As you work through the modules, your own reflections and choices come together into a
+         plan that is uniquely yours.</p>
     </div>
     <div class="feature">
       <div class="feature__art rv">
-        <img src="images/app-screenshot.png" alt="The Resilient Path app on a phone" onerror="this.closest('.feature__art').style.display='none'"
-             style="max-width:min(300px,100%);box-shadow:0 30px 62px -26px rgba(41,17,50,.42)">
+        <img class="phone" src="images/app-screenshot.jpg" width="600" height="975"
+             alt="The Resilient Path app's Digital Workbook, open to Module 1: Redefining Your Pain Experience"
+             onerror="var f=this.closest('.feature');f.classList.add('feature--solo');this.closest('.feature__art').remove()">
       </div>
       <div class="rv">
         <div class="appgrid">
           <div class="appcard">
-            <h4>AI guide</h4>
-            <p>Compassionate, evidence-based answers about chronic pain management.</p>
+            <h4>Uniquely your plan</h4>
+            <p>Your workbook answers become your own plan. When a flare hits, Flare Mode reads your
+               Flare-Up Plan back to you, one tap from home.</p>
+          </div>
+          <div class="appcard">
+            <h4>A guide grounded in the book</h4>
+            <p>The program guide answers from the full text of the book and workbook, and names the
+               chapter or module so you can find it in your book.</p>
+          </div>
+          <div class="appcard">
+            <h4>Find it in seconds</h4>
+            <p>Looking for that pacing example you read last month? Just ask, instead of searching
+               through the pages.</p>
           </div>
           <div class="appcard">
             <h4>25 interactive modules</h4>
@@ -588,12 +845,13 @@ a{color:var(--teal)}
 </section>
 
 <!-- ==================== authors ==================== -->
-<section class="sec sec--tint sec--edge" id="authors">
+<section class="sec sec--edge" id="authors">
   <div class="wrap">
     <div class="sec__head rv">
       <p class="eyebrow">The Authors</p>
       <h2 class="display">Written from experience,<br>guided by expertise</h2>
       <div class="rule"><i></i></div>
+      <p>Two people who live with chronic pain, writing for people who do too.</p>
     </div>
     <div class="authors">
       <article class="author rv">
@@ -648,8 +906,8 @@ a{color:var(--teal)}
       <p class="eyebrow">Order</p>
       <h2 class="display">Begin your<br>resilient path</h2>
       <div class="rule"><i></i></div>
-      <p>Whether you start with the book, the workbook, or the app, every step forward is a step
-         toward reclaiming your life from chronic pain.</p>
+      <p>Start wherever feels right: the book, the workbook, or the app. There is no wrong place
+         to begin, and no pace but your own.</p>
       <p style="max-width:34rem;margin:1.1rem auto 0;font-size:1.18rem;font-style:italic;color:var(--teal)">
         Your condition may be permanent. Your relationship with it is not.
       </p>
@@ -685,6 +943,7 @@ a{color:var(--teal)}
       <div>
         <h4>Explore</h4>
         <ul>
+          <li><a href="#approach">The Approach</a></li>
           <li><a href="#book">The Book</a></li>
           <li><a href="#workbook">The Workbook</a></li>
           <li><a href="#app">The App</a></li>
