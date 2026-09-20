@@ -555,15 +555,30 @@ a{color:var(--teal)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
 
+/* Mid-height laptops (roughly 1440x900): the three hero buttons take two
+   rows, so tighten spacing — not type — to keep the next section in view. */
+@media (min-height:761px) and (max-height:880px) and (min-width:901px){
+  .hero .eyebrow{margin-bottom:.6rem}
+  .hero .rule{margin:.8rem 0}
+  .hero__lede{line-height:1.62}
+  .hero__motto{margin-top:.5rem}
+  .hero .btns{gap:.6rem}
+  .hero .btn{padding-block:.85rem}
+  .hero__by{margin-top:1rem}
+  .hero__foot{margin-top:.7rem}
+}
+
 /* Short laptop screens: trim the hero further so the section below still
    breaks the fold. Nothing is removed, only tightened. */
 @media (max-height:760px) and (min-width:901px){
   .hero{padding-bottom:clamp(.7rem,2svh,2rem)}
-  .hero__copy .display{font-size:clamp(2.2rem,min(6.4vw,7svh),4.4rem)}
-  .hero__lede{max-width:34rem;line-height:1.62}
+  .hero__copy .display{font-size:clamp(2.2rem,min(6.4vw,6.2svh),4.4rem)}
+  .hero__lede{max-width:34rem;line-height:1.55}
   .hero__art img{max-height:52svh;width:auto;height:auto}
-  .hero .btn{padding-block:.85rem}
-  .hero__foot{margin-top:clamp(.5rem,1.6svh,2.1rem)}
+  .hero .btns{margin-top:clamp(.7rem,1.6svh,1.4rem);gap:.6rem}
+  .hero .btn{padding-block:.75rem}
+  .hero__by{margin-top:clamp(.7rem,1.6svh,1.4rem)}
+  .hero__foot{margin-top:clamp(.4rem,1.4svh,2.1rem)}
   .cue span{display:none}
   .cue{gap:0}
 }
@@ -575,6 +590,9 @@ a{color:var(--teal)}
   /* On a phone the cover follows the copy, so the promise and the order
      button clear the fold. The cover is then what the fold cuts off. */
   .hero__art{order:1;max-width:176px;margin-inline:auto}
+  /* three stacked buttons: trim a little height, keeping a 44px touch target */
+  .hero .btns{gap:.6rem}
+  .hero .btn{padding-block:.8rem}
   .hero__the{margin-bottom:.3rem}
   .pillars,.pillars--two,.foot__grid{grid-template-columns:1fr}
   .hero__in{gap:1.8rem}
@@ -640,6 +658,7 @@ a{color:var(--teal)}
       <p class="hero__motto">Written from experience, guided by expertise.</p>
       <div class="btns">
         <a class="btn js-amazon" data-book="book" href="https://www.amazon.com/dp/B0HJ1NMXLL" target="_blank" rel="noopener">Order the book</a>
+        <a class="btn btn--ghost js-amazon" data-book="workbook" href="https://www.amazon.com/dp/B0HHLCSVBJ" target="_blank" rel="noopener">Order the workbook</a>
         <a class="btn btn--ghost" href="#app">Explore the app</a>
       </div>
       <p class="hero__by">
