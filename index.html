@@ -346,18 +346,6 @@ a{color:var(--teal)}
 .cue:hover svg,.cue:focus-visible svg{stroke:var(--aubergine)}
 @keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
-/* Short laptop screens: trim the hero further so the section below still
-   breaks the fold. Nothing is removed, only tightened. */
-@media (max-height:760px) and (min-width:901px){
-  .hero{padding-bottom:clamp(.7rem,2svh,2rem)}
-  .hero__copy .display{font-size:clamp(2.2rem,min(6.4vw,7svh),4.4rem)}
-  .hero__lede{max-width:34rem;line-height:1.62}
-  .hero__art img{max-height:52svh;width:auto}
-  .hero .btn{padding-block:.85rem}
-  .hero__foot{margin-top:clamp(.5rem,1.6svh,2.1rem)}
-  .cue span{display:none}
-  .cue{gap:0}
-}
 .hero__art{position:relative}
 .hero__art img{
   width:100%;max-width:min(392px,100%);margin-inline:auto;border-radius:2px;
@@ -566,6 +554,19 @@ a{color:var(--teal)}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* Short laptop screens: trim the hero further so the section below still
+   breaks the fold. Nothing is removed, only tightened. */
+@media (max-height:760px) and (min-width:901px){
+  .hero{padding-bottom:clamp(.7rem,2svh,2rem)}
+  .hero__copy .display{font-size:clamp(2.2rem,min(6.4vw,7svh),4.4rem)}
+  .hero__lede{max-width:34rem;line-height:1.62}
+  .hero__art img{max-height:52svh;width:auto;height:auto}
+  .hero .btn{padding-block:.85rem}
+  .hero__foot{margin-top:clamp(.5rem,1.6svh,2.1rem)}
+  .cue span{display:none}
+  .cue{gap:0}
+}
 
 /* ============================ responsive ============================ */
 @media (max-width:900px){
