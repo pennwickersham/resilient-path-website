@@ -278,7 +278,9 @@ a{color:var(--teal)}
 }
 
 /* ============================ hero ============================ */
-.hero{position:relative;overflow:hidden;padding:clamp(2.4rem,5vw,4rem) 0 clamp(3rem,6.5vw,5rem)}
+/* The hero is deliberately kept shorter than the viewport so the section
+   below it is always cut off by the fold — the cue that there is more page. */
+.hero{position:relative;overflow:hidden;padding:clamp(1.4rem,3svh,2.4rem) 0 clamp(1.2rem,2.4svh,2rem)}
 .hero__wash{
   position:absolute;inset:0;z-index:0;
   background:url('images/wash.jpg') center 22%/cover no-repeat;
@@ -292,7 +294,7 @@ a{color:var(--teal)}
 /* the h1 carries the full title for search engines; each line keeps its own style */
 .hero__title{margin:0;font-size:inherit;font-weight:inherit}
 .hero__title .eyebrow,.hero__title .display{display:block}
-.hero__copy .display{font-size:clamp(2.7rem,7.6vw,5.3rem);font-weight:200}
+.hero__copy .display{font-size:clamp(2.2rem,min(6.4vw,9svh),4.4rem);font-weight:200}
 .hero__copy .display em{
   display:block;font-style:normal;color:var(--teal);
   font-size:.86em;margin-top:.12em;letter-spacing:.14em;
@@ -303,13 +305,59 @@ a{color:var(--teal)}
   text-transform:uppercase;color:var(--aubergine);font-size:clamp(.8rem,1.8vw,1rem);
 }
 .hero__the::after{content:"";height:1px;background:var(--gold);flex:1 1 auto;max-width:150px}
-.hero__lede{font-size:1.14rem;color:var(--ink);max-width:31rem;margin:1.6rem 0 0}
+.hero__lede{font-size:clamp(1.02rem,2.7svh,1.14rem);color:var(--ink);max-width:31rem;margin:clamp(.8rem,1.8svh,1.2rem) 0 0}
+.hero .eyebrow{margin-bottom:clamp(.5rem,1.4svh,.8rem)}
+.hero .rule{margin:clamp(.6rem,1.6svh,1rem) 0}
+.hero .btns{margin-top:clamp(.9rem,2svh,1.4rem)}
 .hero__by{
   font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--aubergine);margin-top:2.1rem;
+  text-transform:uppercase;color:var(--aubergine);margin-top:clamp(.9rem,2svh,1.4rem);
 }
 .hero__by span{display:block;color:var(--teal);margin-top:.35rem}
-.hero__motto{font-style:italic;color:var(--teal);font-size:1.14rem;margin:.9rem 0 0}
+/* on a short screen the two credits share one line, to save the height */
+@media (max-height:800px) and (min-width:901px){
+  .hero__by span{display:inline;margin-top:0}
+  .hero__by span::before{content:" · "}
+}
+.hero__motto{font-style:italic;color:var(--teal);font-size:clamp(1.02rem,2.7svh,1.14rem);margin:clamp(.5rem,1.4svh,.7rem) 0 0}
+
+/* ---------- what lies below: the strip and the scroll cue ---------- */
+.hero__foot{position:relative;z-index:2;margin-top:clamp(.8rem,2.2svh,2.1rem)}
+.teaser{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.55rem .9rem;margin:0}
+.teaser a{
+  font-family:var(--display);font-size:.68rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+  padding-bottom:.15rem;border-bottom:1px solid transparent;
+  transition:color .2s,border-color .2s;
+}
+.teaser a:hover,.teaser a:focus-visible{color:var(--aubergine);border-bottom-color:var(--gold)}
+.teaser i{width:4px;height:4px;border-radius:50%;background:var(--gold-soft);display:block;flex:0 0 4px}
+.cue{
+  display:flex;flex-direction:column;align-items:center;gap:.3rem;
+  width:max-content;margin:clamp(.45rem,1.2svh,.85rem) auto 0;text-decoration:none;color:var(--teal);
+  font-family:var(--display);font-size:.6rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;
+}
+.cue svg{
+  width:20px;height:11px;fill:none;stroke:var(--gold);stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;animation:nudge 2.6s ease-in-out infinite;
+}
+.cue:hover,.cue:focus-visible{color:var(--aubergine)}
+.cue:hover svg,.cue:focus-visible svg{stroke:var(--aubergine)}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* Short laptop screens: trim the hero further so the section below still
+   breaks the fold. Nothing is removed, only tightened. */
+@media (max-height:760px) and (min-width:901px){
+  .hero{padding-bottom:clamp(.7rem,2svh,2rem)}
+  .hero__copy .display{font-size:clamp(2.2rem,min(6.4vw,7svh),4.4rem)}
+  .hero__lede{max-width:34rem;line-height:1.62}
+  .hero__art img{max-height:52svh;width:auto}
+  .hero .btn{padding-block:.85rem}
+  .hero__foot{margin-top:clamp(.5rem,1.6svh,2.1rem)}
+  .cue span{display:none}
+  .cue{gap:0}
+}
 .hero__art{position:relative}
 .hero__art img{
   width:100%;max-width:min(392px,100%);margin-inline:auto;border-radius:2px;
@@ -523,7 +571,8 @@ a{color:var(--teal)}
 @media (max-width:900px){
   .hero__in,.feature,.authors{grid-template-columns:1fr}
   .feature--flip .feature__art{order:0}
-  .hero__art{order:-1;max-width:196px;margin-inline:auto}
+  .hero__art{order:-1;max-width:132px;margin-inline:auto}
+  .hero__the{margin-bottom:.3rem}
   .pillars,.pillars--two,.foot__grid{grid-template-columns:1fr}
   .hero__in{gap:1.8rem}
   .appgrid{grid-template-columns:1fr}
@@ -599,6 +648,19 @@ a{color:var(--teal)}
       <img src="images/book-cover.jpg" width="1000" height="1250"
            alt="Managing Life with Chronic Pain: The Resilient Path — book cover">
     </div>
+  </div>
+  <div class="wrap hero__foot">
+    <nav class="teaser" aria-label="What is on this page">
+      <a href="#note">The note</a><i aria-hidden="true"></i>
+      <a href="#approach">Why it works</a><i aria-hidden="true"></i>
+      <a href="#book">The book</a><i aria-hidden="true"></i>
+      <a href="#workbook">The workbook</a><i aria-hidden="true"></i>
+      <a href="#app">The app</a>
+    </nav>
+    <a class="cue" href="#note">
+      <span>Read on</span>
+      <svg viewBox="0 0 20 11" aria-hidden="true"><path d="M1 1l9 9 9-9"/></svg>
+    </a>
   </div>
 </section>
 
