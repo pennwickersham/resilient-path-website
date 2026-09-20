@@ -571,7 +571,9 @@ a{color:var(--teal)}
 @media (max-width:900px){
   .hero__in,.feature,.authors{grid-template-columns:1fr}
   .feature--flip .feature__art{order:0}
-  .hero__art{order:-1;max-width:132px;margin-inline:auto}
+  /* On a phone the cover follows the copy, so the promise and the order
+     button clear the fold. The cover is then what the fold cuts off. */
+  .hero__art{order:1;max-width:176px;margin-inline:auto}
   .hero__the{margin-bottom:.3rem}
   .pillars,.pillars--two,.foot__grid{grid-template-columns:1fr}
   .hero__in{gap:1.8rem}
