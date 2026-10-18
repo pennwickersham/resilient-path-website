@@ -60,6 +60,7 @@ images/
   wash.jpg              watercolor plate, used as the hero background
   wash.webp             WebP copy of the wash (q75), served to browsers that take it on wider screens
   wash-900.jpg          900px copy of the wash, served instead on screens 900px wide or less
+  wash-900.webp         WebP of the 900px copy (q75), for browsers that take it
   mark.jpg              square crop, used as the favicon and nav mark
   app-screenshot.jpg    Digital Workbook screen (Module 1), cropped from the app
                         repo's public/screenshots/02_workbook.png, 600px wide
