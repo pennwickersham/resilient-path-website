@@ -45,12 +45,22 @@ running the script. If a listing URL, ISBN, or page count changes, update the
 
 ```
 index.html              the entire site
+404.html                shown by GitHub Pages for any missing URL (noindex)
+robots.txt              allows everything, points at the sitemap
+sitemap.xml             the one indexable URL; bump <lastmod> when index.html changes
+favicon.ico             16/32/48px, cut from images/mark.jpg
+apple-touch-icon.png    180px, cut from images/mark.jpg
 images/
   book-cover.jpg        front cover, book        (web-sized from the 300 DPI master)
+  book-cover-600.jpg    600px copy the page serves to most screens (srcset)
   workbook-cover.jpg    front cover, workbook
+  workbook-cover-600.jpg  600px copy, as above
   book-back.jpg         back cover, book         (not currently placed on the page)
   workbook-back.jpg     back cover, workbook     (not currently placed on the page)
   wash.jpg              watercolor plate, used as the hero background
+  wash.webp             WebP copy of the wash (q75), served to browsers that take it on wider screens
+  wash-900.jpg          900px copy of the wash, served instead on screens 900px wide or less
+  wash-900.webp         WebP of the 900px copy (q75), for browsers that take it
   mark.jpg              square crop, used as the favicon and nav mark
   app-screenshot.jpg    Digital Workbook screen (Module 1), cropped from the app
                         repo's public/screenshots/02_workbook.png, 600px wide
@@ -60,6 +70,17 @@ images/
 If an image such as the app screenshot is missing, the
 page hides that element rather than showing a broken image icon (and the app
 section's cards widen to fill the space).
+
+If a cover or the wash changes, regenerate its `-600`/`-900`/`.webp` copy too, or the page keeps showing the old one.
+
+---
+
+## Network links
+
+The footer's "From Brewster Wickersham Publications" block (and the same list in
+`404.html`) links to the publisher, the other three sites, the Amazon author store,
+and the book and workbook listings. The same list appears on every site in the
+network, so change it on all of them together. Our own sites are never `nofollow`.
 
 ---
 
