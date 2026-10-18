@@ -690,6 +690,8 @@ a{color:var(--teal)}
 
 /* ============================ responsive ============================ */
 @media (max-width:900px){
+  /* a 900px copy of the wash: the 1600px one is ~3x the bytes for no visible gain here */
+  .hero__wash{background-image:url('images/wash-900.jpg')}
   .hero__in,.feature,.authors{grid-template-columns:1fr}
   .feature--flip .feature__art{order:0}
   /* On a phone the cover follows the copy, so the promise and the order
