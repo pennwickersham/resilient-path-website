@@ -372,6 +372,8 @@ a{color:var(--teal)}
 .hero__wash{
   position:absolute;inset:0;z-index:0;
   background:url('images/wash.jpg') center 22%/cover no-repeat;
+  /* WebP where the browser takes it (145 KB vs 357 KB); older browsers skip this line */
+  background-image:image-set(url('images/wash.webp') type('image/webp'),url('images/wash.jpg') type('image/jpeg'));
   opacity:.5;
 }
 .hero__veil{

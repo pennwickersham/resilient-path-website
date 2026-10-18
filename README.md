@@ -58,6 +58,7 @@ images/
   book-back.jpg         back cover, book         (not currently placed on the page)
   workbook-back.jpg     back cover, workbook     (not currently placed on the page)
   wash.jpg              watercolor plate, used as the hero background
+  wash.webp             WebP copy of the wash (q75), served to browsers that take it on wider screens
   wash-900.jpg          900px copy of the wash, served instead on screens 900px wide or less
   mark.jpg              square crop, used as the favicon and nav mark
   app-screenshot.jpg    Digital Workbook screen (Module 1), cropped from the app
@@ -69,7 +70,7 @@ If an image such as the app screenshot is missing, the
 page hides that element rather than showing a broken image icon (and the app
 section's cards widen to fill the space).
 
-If a cover or the wash changes, regenerate its `-600`/`-900` copy too, or the page keeps showing the old one.
+If a cover or the wash changes, regenerate its `-600`/`-900`/`.webp` copy too, or the page keeps showing the old one.
 
 ---
 
