@@ -1,0 +1,1 @@
+document.getElementById('clear-reflection').addEventListener('click',()=>{document.querySelectorAll('#try-it textarea').forEach(x=>x.value='');document.getElementById('reflection-status').textContent='Your answers have been cleared.';});
